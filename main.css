@@ -1,0 +1,94 @@
+html,body {
+    background: gray;
+    font-family: 'Raleway', sans-serif;
+    color: #111;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+#container {
+    height: 100%;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+#container > * {
+    margin: 0;
+    background: #fff;
+}
+
+/* Medium screens */
+@media all and (min-width: 600px) {
+    .tools { flex: 4 auto; }
+}
+
+/* Large screens */
+@media all and (min-width: 800px) {
+    #workspace { flex: 16; }
+    #workspace { order: 1 }
+    #tools     { order: 2; }
+}
+
+#tools, #header {
+    padding: 0 0.5em;
+}
+
+#tools {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #ddd;
+}
+
+#workspace {
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-flow: column wrap;
+}
+
+#header {
+}
+
+#viewport {
+    display: flex;
+    flex-flow: column wrap;
+    flex: auto;
+    justify-content: space-around;
+    padding-left: 0.5em;
+}
+
+#viewport div:first-of-type {
+    display: flex;
+    flex-flow: column wrap;
+    flex: 2;
+}
+
+#viewport div:first-of-type canvas {
+    margin-bottom: 2px;
+}
+
+#viewport div {
+    display: flex;
+    flex-flow: row wrap;
+    flex: 1;
+}
+
+#viewport div canvas {
+    flex: 1;
+}
+
+#viewport div:not(:first-of-type) canvas:not(:first-child):not(:last-child) {
+    margin: 0 2px;
+}
+
+#half-breadth, #profile {
+    width: 100%;
+}
+
+#body-plan, #current-section, #rendering {
+    flex: 1;
+}
+
+canvas {
+    background: #ddd;
+}

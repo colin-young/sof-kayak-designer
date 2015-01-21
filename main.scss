@@ -20,12 +20,12 @@ html,body {
 
 /* Medium screens */
 @media all and (min-width: 600px) {
-    .tools { flex: 4 auto; }
+    .tools { flex: 1 auto; }
 }
 
 /* Large screens */
 @media all and (min-width: 800px) {
-    #workspace { flex: 16; }
+    #workspace { flex: 15; }
     #workspace { order: 1 }
     #tools     { order: 2; }
 }
@@ -35,8 +35,23 @@ html,body {
 }
 
 #tools {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #ddd;
+    background-color: fff;
+    max-width: 20em;
+}
+
+#tools > *:not(h2) {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: 300;
+}
+
+#tools > form {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+#tools > form > .group {
+    flex: 4 1 auto;
 }
 
 #workspace {

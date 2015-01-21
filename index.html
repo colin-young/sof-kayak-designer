@@ -1,34 +1,89 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link href='http://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>SOF Kayak Designer</title>
-        <link rel="stylesheet" href="main.css">
-    </head>
-    <body>
-        <div id="container">
-            <div id="workspace">
-                <header id="header">
-                    <h1>SOF Kayak Designer</h1>
-                </header>
-                <div id="viewport">
-                    <div>
-                        <canvas id="half-breadth"></canvas>
-                        <canvas id="profile"></canvas>
-                    </div>
 
-                    <div>
-                        <canvas id="body-plan"></canvas>
-                        <canvas id="current-section"></canvas>
-                        <canvas id="rendering"></canvas>
-                    </div>
+<head>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>SOF Kayak Designer</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="material.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.9.18/paper-full.js"></script>
+</head>
+
+<body>
+    <script type="text/paperscript" data-paper-canvas="half-breadth">
+        var path = new Path.Circle({
+            center: view.center,
+            radius: 30,
+            strokeColor: 'black'
+        });
+
+        function onResize(event) {
+            // Whenever the window is resized, recenter the path:
+            path.position = view.center;
+        }
+    </script>
+    <div id="container">
+        <div id="workspace">
+            <header id="header">
+                <h1>SOF Kayak Designer</h1>
+            </header>
+            <div id="viewport">
+                <div>
+                    <canvas id="half-breadth"></canvas>
+                    <canvas id="profile"></canvas>
+                </div>
+
+                <div>
+                    <canvas id="body-plan"></canvas>
+                    <canvas id="current-section"></canvas>
+                    <canvas id="rendering"></canvas>
                 </div>
             </div>
-            <div id="tools" class="tools">
-                <h2>Tools</h2>
-            </div>
         </div>
-    </body>
+        <div id="tools" class="tools">
+            <h2>Tools</h2>
+            <h3>Dimensions</h3>
+            <form>
+                <div class="group">
+                    <input type="text" name="overall-length" required>
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label>Overall Length</label>
+                </div>
+
+                <div class="group">
+                    <input type="text" name="waterline-length" required>
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label for="waterline-length">Waterline Length</label>
+                </div>
+
+                <div class="group">
+                    <input type="text" name="overall-beam" required>
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label for="waterline-length">Overall Beam</label>
+                </div>
+
+                <div class="group">
+                    <input type="text" name="waterline-beam" required>
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label for="waterline-length">Waterline Beam</label>
+                </div>
+
+                <div class="group">
+                    <input type="text" name="draft" value="4" readonly required>
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label for="waterline-length">Draft</label>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
 </html>

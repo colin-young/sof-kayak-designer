@@ -12,9 +12,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.9.18/paper-full.js"></script>
     <script type="text/paperscript" data-paper-canvas="half-breadth-canvas" src="canvas.js"></script>
     <script type="application/javascript">
-        $('.canvas').each(function(index) { 
-            alert($(this).width());
-            $(this).attr({ width: $(this).parent().width(), height: $(this).parent().height() });
+        $(document).ready(function(){
+            $('.canvas canvas').each(function(index) { 
+                $(this).attr({ 
+                    width: $(this).parent().width(), 
+                    height: $(this).parent().height() });
+            });
         });
     </script>
 </head>

@@ -1,21 +1,20 @@
 html,body {
-    background: gray;
     font-family: 'Raleway', sans-serif;
     color: #111;
     height: 100%;
     padding: 0;
     margin: 0;
+    overflow: auto;
+}
+
+.flex {
+    display: flex;
+    overflow: auto;
 }
 
 #container {
     height: 100%;
-    display: flex;
     flex-flow: row wrap;
-}
-
-#container > * {
-    margin: 0;
-    background: #fff;
 }
 
 /* Medium screens */
@@ -25,18 +24,23 @@ html,body {
 
 /* Large screens */
 @media all and (min-width: 800px) {
-    #workspace { flex: 15; }
+    #workspace { flex: 1; }
     #workspace { order: 1 }
     #tools     { order: 2; }
 }
 
+#workspace {
+    padding: 0;
+    flex-flow: column wrap;
+}
+
 #tools, #header {
-    padding: 0 0.5em;
+    padding: 0 0.5rem;
 }
 
 #tools {
     background-color: fff;
-    max-width: 20em;
+    max-width: 20rem;
 }
 
 #tools > *:not(h2) {
@@ -51,57 +55,30 @@ html,body {
 }
 
 #tools > form > .group {
-    flex: 4 1 auto;
-}
-
-#workspace {
-    padding: 0;
-    height: 100%;
-    display: flex;
-    flex-flow: column wrap;
+    flex: 1 1 40%;
+    margin: 0.25rem;
 }
 
 #header {
 }
 
 #viewport {
-    display: flex;
-    flex-flow: column wrap;
-    flex: auto;
-    justify-content: space-around;
-    padding-left: 0.5em;
-}
-
-#viewport div:first-of-type {
-    display: flex;
-    flex-flow: column wrap;
-    flex: 2;
-}
-
-#viewport div:first-of-type canvas {
-    margin-bottom: 2px;
-}
-
-#viewport div {
-    display: flex;
+    flex: 1 0 100%;
     flex-flow: row wrap;
-    flex: 1;
+    justify-content: space-between;
 }
 
-#viewport div canvas {
-    flex: 1;
-}
-
-#viewport div:not(:first-of-type) canvas:not(:first-child):not(:last-child) {
-    margin: 0 2px;
+.canvas {
+    background: #ccc;
+    margin: 0.25rem;
 }
 
 #half-breadth, #profile {
-    width: 100%;
+    flex: 1 0 100%;
 }
 
 #body-plan, #current-section, #rendering {
-    flex: 1;
+    flex: 1 0 32%;
 }
 
 canvas {
